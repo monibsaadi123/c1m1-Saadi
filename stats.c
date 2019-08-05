@@ -49,6 +49,7 @@ void main() {
 
   print_statistics(test);
   print_array(test);
+  sort_array(test,40);
 }
 
 
@@ -126,22 +127,26 @@ return min;
 }
 
 
-void swap(int *xp, int *yp) 
+void swap(unsigned char *xp, unsigned char *yp) 
 { 
-int temp = *xp; 
+unsigned char temp = *xp; 
 *xp = *yp; 
 *yp = temp; 
 } 
 
 
 
-void sort_array(int *arr,int length)
+void sort_array(unsigned char *arr,int length)
 { 
 int i, j; 
 for (i = 0; i < length-1; i++)       
 	for (j = 0; j < length-i-1; j++)  
         	if (*(arr+j) > *(arr+j+1)) 
-                	swap((arr+j), (arr+j+1)); 
+                	swap((arr+j), (arr+j+1));
+printf("The sorted array is: ");
+for (i = 0; i < length; i++) 
+	printf("%d ", *(arr+i));
+printf("\n"); 
 } 
  
 
