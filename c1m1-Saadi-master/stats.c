@@ -46,9 +46,9 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-
-  print_statistics(test);
   print_array(test);
+  sort_arraya(test,40);	 
+  print_statistics(test);
   sort_array(test,40);
 }
 
@@ -56,22 +56,24 @@ void main() {
 void print_statistics(unsigned char *arr){
 unsigned int total;
 unsigned int median_index;
-float mean;
+unsigned int mean;
 unsigned int max = *(arr);
 unsigned int min = *(arr);
 total = max;
 for(int i=1; i < SIZE; i++){
-	total = total + *(arr+i);
 	if(*(arr+i) > max) max = *(arr+i);
 }
 for(int i=1; i < SIZE; i++){
 	if(*(arr+i) < min) min = *(arr+i);
 }
-mean = (float) max/SIZE;
+for(int i=0; i < SIZE; i++){
+	total = total + *(arr+i);
+}
+mean = total/SIZE;
 median_index = SIZE/2;
 printf("The maximum number of array is %d\n",max);
 printf("The minimum number of array is %d\n",min);
-printf("The mean number of array is %.2lf\n",mean);
+printf("The mean number of array is %d\n",mean);
 printf("The median number of array is %d\n",*(arr+median_index-1));
 }
 
@@ -143,10 +145,24 @@ for (i = 0; i < length-1; i++)
 	for (j = 0; j < length-i-1; j++)  
         	if (*(arr+j) < *(arr+j+1)) 
                 	swap((arr+j), (arr+j+1));
-printf("The sorted array is: ");
+printf("The sorted array in decreasing order is: ");
 for (i = 0; i < length; i++) 
 	printf("%d ", *(arr+i));
 printf("\n"); 
-} 
+}
+
+
+void sort_arraya(unsigned char *arr,int length)
+{ 
+int i, j; 
+for (i = 0; i < length-1; i++)       
+	for (j = 0; j < length-i-1; j++)  
+        	if (*(arr+j) > *(arr+j+1)) 
+                	swap((arr+j), (arr+j+1));
+printf("The sorted array in increasing order is: ");
+for (i = 0; i < length; i++) 
+	printf("%d ", *(arr+i));
+printf("\n"); 
+}  
  
 

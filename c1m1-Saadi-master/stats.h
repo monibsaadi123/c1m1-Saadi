@@ -111,7 +111,7 @@ unsigned int find_minimum(unsigned char *,int);
  *
  * @return void return type. It just sorts the array.
  */
-void sort_array(int *,int);
+void sort_array(unsigned char *,int);
 
 /**
  * @brief This function swap two values.
@@ -123,7 +123,22 @@ void sort_array(int *,int);
  *
  * @return void return type. It just sorts the array.
  */
-void swap(int *,int *);
+void swap(unsigned char *,unsigned char *);
+
+
+
+/**
+ * @brief This function sorts the input array in ascending order. The elements of array should be
+ * integers.
+ *
+ * This functions takes an array as input. Apply bubble sort algorithm on the array.
+ * 
+ *
+ * @param The array on which operations are to be performed
+ *
+ * @return void return type. It just sorts the array.
+ */
+void sort_arraya(unsigned char *,int);
 
 
 
